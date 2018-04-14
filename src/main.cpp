@@ -10,12 +10,12 @@ message_result::results cmd_unknown(std::string)
 message_result::results cmd_stop(std::string)
 {
     isContinue = false;
-    std:: cout << "[COMMAND STOP] Stopping" << std::endl;
+    std:: cout << "[CMD STOP] Stopping" << std::endl;
     return message_result::results::OK;
 }
 message_result::results cmd_echo(std::string e)
 {
-    std:: cout << "[COMMAND ECHO] " << e << std::endl;
+    std:: cout << "[CMD ECHO] " << e << std::endl;
     return message_result::results::OK;
 }
 message_result::results cmd_loadmodule(std::string file)
@@ -36,7 +36,7 @@ int main()
     std::cout << "OK" << std::endl;
     
     
-    std::cout << "Запись комманд  ";
+    std::cout << "Запись команд  ";
     table->add(&cmd_echo);
     table->add(&cmd_loadmodule);
     table->add(&cmd_stop);
@@ -46,9 +46,8 @@ int main()
         unsigned int cmdnumber = 0;
         std::string param;
         std::cin >> cmdnumber >> param;
-        std::cout << table->size << std::endl;
         if(cmdnumber >= table->size) {
-                std::cerr << "Комманда не существует" << std::endl;
+                std::cerr << "Команда не существует" << std::endl;
                 continue;
         }
         message_result::results r = table->table[cmdnumber](param);
