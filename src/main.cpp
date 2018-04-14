@@ -46,6 +46,7 @@ int main()
         unsigned int cmdnumber = 0;
         std::string param;
         std::cin >> cmdnumber >> param;
+        std::cout << table->size << std::endl;
         if(cmdnumber >= table->size) {
                 std::cerr << "Комманда не существует" << std::endl;
                 continue;

@@ -21,7 +21,7 @@ unsigned int CallTable::add(CallCell c)
 }
 bool CallTable::realloc(unsigned int newsize)
 {
-    if(size <= newsize) return false;
+    if(newsize < size) return false;
     CallCell* newtable = new CallCell[newsize];
     memcpy(newtable,table,size*sizeof(CallCell));
     delete[] table;
