@@ -18,17 +18,13 @@ private:
    void operator=( const CallTable& ) = delete;
 public:
     typedef message_result::results CmdResult;
-    typedef CmdResult (*CallCell)(unsigned int, std::string);
+    typedef CmdResult (*CallCell)(std::string);
     CallCell default_cell;
     CallCell* table;
     unsigned int size;
     unsigned int autoincrement;
     CallTable(unsigned int size,CallCell _default);
     unsigned int add(CallCell c);
-    inline CmdResult call(unsigned int index,unsigned int arg1, std::string arg2)
-    {
-        return table[index](arg1,arg2);
-    }
     bool realloc(unsigned int newsize);
     ~CallTable();
 };
