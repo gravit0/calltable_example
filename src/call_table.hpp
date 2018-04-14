@@ -7,7 +7,8 @@ namespace message_result
 {
 enum class results : unsigned char{
         OK = 0,
-        ERROR_FILENOTFOUND = 1
+        ERROR_FILENOTFOUND = 1,
+        ERROR_CMDUNKNOWN = 2
 };
 };
 class CallTable

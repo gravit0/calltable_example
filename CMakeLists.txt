@@ -1,5 +1,5 @@
 project(habrahabr_calltable)
-set( SOURCE_ROOT ./ )
+set( SOURCE_ROOT ./src )
 set (CMAKE_CXX_STANDARD 17)
 aux_source_directory( ${SOURCE_ROOT} SOURCES )
 add_executable(${PROJECT_NAME} ${SOURCES})
